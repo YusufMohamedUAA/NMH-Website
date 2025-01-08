@@ -121,7 +121,7 @@ const Home = () => {
             </Menu>
           </Box>
 
-          <Box textAlign="center" py="5%" px={0}  overflowX="hidden" display="flex" flexDirection="column">
+          <Box textAlign="center" py="2vh" px={0}  overflowX="hidden" display="flex" flexDirection="column">
             <Box overflow="hidden" whiteSpace="nowrap" position="relative" height="70px" lineHeight="50px" mb={6}>
               <Heading as="h1" size="4xl" color="nmh.primary" className="scrolling-header">
                 No More Heroes
