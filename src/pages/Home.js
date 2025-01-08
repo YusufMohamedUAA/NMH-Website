@@ -121,9 +121,9 @@ const Home = () => {
             </Menu>
           </Box>
 
-          <Box textAlign="center" flexDirection='column'  overflowX="hidden" display="flex"  maxHeight='100%' height='100vh' >
-            <Box overflow="hidden" whiteSpace="nowrap" position="relative" height="70px" lineHeight="50px" mb={5} pt={3}>
-              <Heading as="h1" size="4xl" mt={3} color="nmh.primary" className="scrolling-header">
+          <Box textAlign="center" py={20} px={0} width="100vw" overflowX="hidden">
+            <Box overflow="hidden" whiteSpace="nowrap" position="relative" height="70px" lineHeight="50px" mb={6}>
+              <Heading as="h1" size="4xl" color="nmh.primary" className="scrolling-header">
                 No More Heroes
               </Heading>
             </Box>
@@ -135,7 +135,6 @@ const Home = () => {
               height="auto"
               mb={6}
               className="hover-image"
-              pt={0}
             />
             <Text fontSize="5xl" mb={6} className="intro">
               <Typewriter
@@ -152,12 +151,11 @@ const Home = () => {
               bg="nmh.accent"
               _hover={{ bg: 'nmh.primary', transform: 'scale(1.1)' }}
               transition="all 0.3s"
-              mt={5}
             >
               Explore Now
             </Button>
             </Link>
-            <Box mt={20}>
+            <Box mt={10}>
               <Heading size="lg" mb={6} color='nmh.secondary'>
                 Explore the World of Santa Destroy
               </Heading>
@@ -173,7 +171,7 @@ const Home = () => {
                 </Box>
               </Box>
             </Box>
-            <Box as="footer" textAlign="center" py={0} bg="nmh.primary" color="nmh.secondary" mt={10}>
+            <Box as="footer" textAlign="center" py={4} bg="nmh.primary" color="nmh.secondary" mt={10}>
               <Text fontSize="lg">© 2025 Santa Destroy Experience</Text>
               <Box mt={2}>
                 <Button as="a" href="#" variant="link" mx={2} color="nmh.secondary" fontSize="lg">
