@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'NoMoreHeroesFont';
-    src: url('D:\\Fonts\\ARCADE.TTF') format('woff2'),
-         url('D:\\Fonts\\ARCADE.TTF') format('woff');
+    src: url('ARCADE.TTF') format('woff2'),
+         url('ARCADE.TTF') format('woff');
     font-weight: normal;
     font-style: normal;
   }
