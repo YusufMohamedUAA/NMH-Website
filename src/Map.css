@@ -1,0 +1,93 @@
+ /*
+.scrolling-header {
+  animation: scroll-left 10s linear infinite, change-color 5s linear infinite, coun;
+  white-space: nowrap;
+  padding: 0; /* Remove any padding 
+  margin: 0;
+}
+*/
+.intro {
+  
+    animation: change-color 5s linear infinite;
+  }
+  
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  @keyframes change-color {
+    0% {
+      color: #E51C23; 
+      opacity: 1; 
+    }
+    50% {
+      color: #F4B400; 
+      opacity: 1; 
+    }
+    75% {
+      color: #F4B400; 
+      opacity: 0.5; 
+    }
+    100% {
+      color: #E51C23; 
+      opacity: 1; 
+    }
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .scrolling-header {
+    animation: bounce 2s infinite;
+  }
+  
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    
+  }
+  
+  .hover-image {
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .hover-image:hover {
+    transform: scale(1.2);
+  }
+  /* logic for the map icons */
+  .icon-container {
+    position: relative;
+    display: inline-block;
+  }
+
+  .icon-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .gif-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none; 
+    transition: opacity 0.3s ease-in-out;
+    transform: scale(3);
+  }
+  
+  .icon-container:hover .gif-overlay {
+    opacity: 1;
+  }
