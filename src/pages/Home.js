@@ -121,7 +121,7 @@ const Home = () => {
             </Menu>
           </Box>
 
-          <Box textAlign="center" py="2vh" px={0}  overflowX="hidden" display="flex" flexDirection="column">
+          <Box textAlign="center" marginTop="2%" overflowX="hidden" display="flex" flexDirection="column">
             <Box overflow="hidden" whiteSpace="nowrap" position="relative" height="70px" lineHeight="50px" mb={6}>
               <Heading as="h1" size="4xl" color="nmh.primary" className="scrolling-header">
                 No More Heroes
@@ -171,7 +171,7 @@ const Home = () => {
                 </Box>
               </Box>
             </Box>
-            <Box as="footer" textAlign="center" py={4} bg="nmh.primary" color="nmh.secondary" mt={10}>
+            <Box as="footer" textAlign="center" py={4} bg="nmh.primary" color="nmh.secondary" mt={20}>
               <Text fontSize="lg">© 2025 Santa Destroy Experience</Text>
               <Box mt={2}>
                 <Button as="a" href="#" variant="link" mx={2} color="nmh.secondary" fontSize="lg">
