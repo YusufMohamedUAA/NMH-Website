@@ -11,6 +11,7 @@ import { Outlet, Link, Route, BrowserRouter as Router } from "react-router-dom";
 import { NavLink } from 'react-router-dom';
 import MapSD from '../Map.png';
 import Motel1 from '../Motel1.png';
+import Naomi1 from '../Naomi\'s Lab1.png';
 import '../Map.css';
 
 const theme = extendTheme({
@@ -39,7 +40,8 @@ const theme = extendTheme({
 const Home = () => {
   const [isGifVisible, setIsGifVisible] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false); 
-  const [isHovered, setIsHovered] = useState(false);//check if the icon is toggled or not
+  const [isHovered, setIsHovered] = useState(false);
+  const [isHovered2, setIsHovered2] = useState(false);
 
 
   const handleIconClick = () => {
@@ -71,6 +73,14 @@ const Home = () => {
 
   const handleMarkerLeave1 = () => {
     setIsHovered(false);
+  };
+
+  const handleMarkerEnter2 = () => {
+    setIsHovered2(true);
+  };
+
+  const handleMarkerLeave2 = () => {
+    setIsHovered2(false);
   };
   console.log("map " + isGifVisible);
   return (
@@ -143,7 +153,9 @@ const Home = () => {
         border="4px solid #E51C23" // Border around the map
       >
         <Image src={MapSD} alt="Map" width="100%" />
-        <Marker top="50%" left="50%" isGifVisible={isHovered} handleMouseEnter={handleMarkerEnter1} handleMouseLeave={handleMarkerLeave1}/>
+        <Marker top="50%" left="50%" isGifVisible={isHovered} handleMouseEnter={handleMarkerEnter1} handleMouseLeave={handleMarkerLeave1} Icon={Motel1}/>
+
+        <Marker top="70%" left="50%" isGifVisible={isHovered2} handleMouseEnter={handleMarkerEnter2} handleMouseLeave={handleMarkerLeave2} Icon={Naomi1}/>
       </Box>
       
         
@@ -153,8 +165,11 @@ const Home = () => {
   );
 };
 
-const Marker = ({ top, left, isGifVisible, handleMouseEnter, handleMouseLeave }) => {
+const Marker = ({ top, left, isGifVisible, handleMouseEnter, handleMouseLeave, Icon }) => {
   console.log(isGifVisible);
+  const handleClick = () => {
+    console.log("you clicked me har har");
+  };
   return(
     <Box 
       position="absolute"  // Use absolute positioning relative to the parent container (map)
@@ -163,8 +178,11 @@ const Marker = ({ top, left, isGifVisible, handleMouseEnter, handleMouseLeave })
       transform="translate(-50%, -50%)"  // Center the marker based on its position
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onClick={handleClick}
+      border='2px'
+      borderColor='tomato'
     >
-      <Image src={Motel1} alt="Motel Marker" boxSize="50px" />
+      <Image src={Icon} alt="Motel Marker" boxSize="50px" />
       
       {/* Circle GIF Overlay */}
       {isGifVisible && (
