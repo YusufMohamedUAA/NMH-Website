@@ -1,13 +1,19 @@
-import React, { useState } from 'react';
-import { ChakraProvider, Box, Menu, MenuButton, MenuItem, MenuList, IconButton, Image, Text } from '@chakra-ui/react';
+import React from 'react';
+import {useState, useRef, useEffect} from 'react';
+import '../fonts.css';
+import '../App.css';
+import { ChakraProvider, Box, Heading, Text, Image, Button, extendTheme, Menu, MenuButton, MenuItem, MenuList, IconButton } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons'; 
-import { Link } from 'react-router-dom';
-import MapSD from '../Map.png';
+import { Typewriter } from 'react-simple-typewriter';
+import Logo from '../NoMoreHeroesTransparent.png';
 import circlegif from '../circle.gif';
+import { Outlet, Link, Route, BrowserRouter as Router } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
+import MapSD from '../Map.png';
 import Motel1 from '../Motel1.png';
 import '../Map.css';
 
-const theme = {
+const theme = extendTheme({
   colors: {
     nmh: {
       background: '#141414',
@@ -28,95 +34,104 @@ const theme = {
     heading: 'NoMoreHeroesFont, sans-serif',
     body: 'NoMoreHeroesFont, sans-serif',
   },
-};
+});
 
-const Map = () => {
-  const [isGifVisible, setIsGifVisible] = useState(false);
+const Home = () => {
+  const [isGifVisible, setIsGifVisible] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false); 
+  const [isHovered, setIsHovered] = useState(false);//check if the icon is toggled or not
+
 
   const handleIconClick = () => {
-    setIsMenuOpen(!isMenuOpen);
+    /* if we want the gif to stay after the click and we are hovering over it
+    if (isMenuOpen) {
+        setIsGifVisible(false); 
+      } else {
+        setIsGifVisible(true); 
+      }
+      setIsMenuOpen(!isMenuOpen); 
+      */
+
+        setIsGifVisible(false); 
+        setIsMenuOpen(!isMenuOpen);
   };
 
-  const handleMouseEnter = () => {
-    setIsGifVisible(true); 
+  const handleMouseEnter = () => { //hover case for menu button
+    if (isMenuOpen) {
+        setIsGifVisible(false); 
+      } else {
+        setIsGifVisible(true); 
+      }
+       
   };
 
-  const handleMouseLeave = () => {
-    setIsGifVisible(false); 
+  const handleMarkerEnter1 = () => {
+    setIsHovered(true);
   };
 
+  const handleMarkerLeave1 = () => {
+    setIsHovered(false);
+  };
+  console.log("map " + isGifVisible);
   return (
     <ChakraProvider theme={theme}>
-      {/* Header Area */}
-      <Box 
-        position="fixed" 
-        top="0" 
-        left="0" 
-        right="0" 
-        zIndex="10"
-        
-        display="flex"
-        justifyContent="space-between"
-      >
-        <Text color="nmh.secondary" fontSize="xl" fontWeight="bold">
-          Your Title
-        </Text>
-        <Menu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} onInteractionOutside={() => setIsMenuOpen(false)}>
-          <div className='icon-container'>
-            <MenuButton
-              as={IconButton}
-              icon={<HamburgerIcon />}
-              variant="outline"
-              color="nmh.secondary"
-              _active={{ bg: 'nmh.primary', color: 'nmh.secondary' }}
-              aria-label="Menu"
-              onClick={handleIconClick}
-              size="lg" // Increase size of the button
-              width="60px" // Increase the width of the button
-              height="60px" // Increase the height of the button
-            />
-          </div>
-          <MenuList bg="#141414" borderColor="nmh.primary">
-            <Link to="/" style={{ textDecoration: 'none', display: 'block' }}>
-              <MenuItem
-                color="nmh.primary"
-                bg="#141414"
-                _hover={{ bg: 'nmh.primary', color: 'black' }}
-                fontSize="xl" // Increase font size of the menu items
-                padding="10px 20px" // Increase padding for better touch targets
-              >
-                Home
-              </MenuItem>
-            </Link>
-            <Link to="/about" style={{ textDecoration: 'none', display: 'block' }}>
-              <MenuItem
-                color="nmh.primary"
-                bg="#141414"
-                _hover={{ bg: 'nmh.primary', color: 'black' }}
-                fontSize="xl" // Increase font size of the menu items
-                padding="10px 20px" // Increase padding for better touch targets
-              >
-                About
-              </MenuItem>
-            </Link>
-            <Link to="/contact" style={{ textDecoration: 'none', display: 'block' }}>
-              <MenuItem
-                color="nmh.primary"
-                bg="#141414"
-                _hover={{ bg: 'nmh.primary', color: 'black' }}
-                fontSize="xl" // Increase font size of the menu items
-                padding="10px 20px" // Increase padding for better touch targets
-              >
-                Contact
-              </MenuItem>
-            </Link>
-          </MenuList>
-        </Menu>
-      </Box>
+      
+        <nav>
+          /** */
+          <Box position="fixed" top="40px" right="40px" zIndex="10">
+            <Menu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} onInteractionOutside={() => setIsMenuOpen(false)}>
+                <div className='icon-container'>
+              <MenuButton
+                as={IconButton}
+                icon={<HamburgerIcon />}
+                variant="outline"
+                color="nmh.secondary"
+                _active={{ bg: 'nmh.primary', color: 'nmh.secondary' }}
+                aria-label="Menu"
+                onMouseEnter={handleMouseEnter}
+                onClick={handleIconClick}
 
-      {/* Main Content Area */}
-      <Box 
+              />
+                {isGifVisible && <img className="gif-overlay" src={circlegif} alt="scribble circle AAAAAAAAAAA" />}
+                
+                </div>
+              <MenuList bg="#141414" borderColor="nmh.primary">
+              <Link to="/" style={{ textDecoration: 'none', display: 'block' }}>
+                <MenuItem
+                  color="nmh.primary"
+                  bg="#141414"
+                  _hover={{ bg: 'nmh.primary', color: 'black' }}
+                  fontSize="lg"
+                >
+                  Home
+                </MenuItem>
+                </Link>
+                <Link to="/about" style={{ textDecoration: 'none', display: 'block' }}>
+                  <MenuItem
+                    color="nmh.primary"
+                    bg="#141414"
+                    _hover={{ bg: 'nmh.primary', color: 'black' }}
+                    fontSize="lg"
+                   
+                  >
+                    About
+                  </MenuItem>
+                </Link>
+                <Link to="/contact" style={{ textDecoration: 'none', display: 'block' }}>
+                  <MenuItem
+                    color="nmh.primary"
+                    bg="#141414"
+                    _hover={{ bg: 'nmh.primary', color: 'black' }}
+                    fontSize="lg"
+                   
+                  >
+                    Contact
+                  </MenuItem>
+                </Link>
+              </MenuList>
+            </Menu>
+          </Box>
+        <Box 
         position="relative" 
         top="80px" // Adjust for header height
         height="calc(100vh - 80px)" // Remaining height after header
@@ -128,38 +143,45 @@ const Map = () => {
         border="4px solid #E51C23" // Border around the map
       >
         <Image src={MapSD} alt="Map" width="100%" />
-
-        {/* Motel1 Marker */}
-        <Box 
-          position="absolute" 
-          top="50%" // Adjust the top position as needed for your map coordinates
-          left="50%" // Adjust the left position as needed for your map coordinates
-          transform="translate(-50%, -50%)" // Center the marker on the coordinates
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-        >
-          <Image src={Motel1} alt="Motel Marker" boxSize="50px" />
-          
-          {/* Circle GIF Overlay */}
-          {isGifVisible && (
-            <Box
-              position="absolute"
-              top="0"
-              left="0"
-              width="100%"
-              height="100%"
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
-              zIndex="5" // Ensure the GIF is on top of the marker
-            >
-              <Image src={circlegif} alt="Circle GIF" boxSize="60px" />
-            </Box>
-          )}
-        </Box>
+        <Marker top="50%" left="50%" isGifVisible={isHovered} handleMouseEnter={handleMarkerEnter1} handleMouseLeave={handleMarkerLeave1}/>
       </Box>
+      
+        
+        </nav>
+      
     </ChakraProvider>
   );
 };
 
-export default Map;
+const Marker = ({ top, left, isGifVisible, handleMouseEnter, handleMouseLeave }) => {
+  console.log(isGifVisible);
+  return(
+    <Box 
+      position="absolute"  // Use absolute positioning relative to the parent container (map)
+      top={top} // Position the marker based on the passed props
+      left={left}
+      transform="translate(-50%, -50%)"  // Center the marker based on its position
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <Image src={Motel1} alt="Motel Marker" boxSize="50px" />
+      
+      {/* Circle GIF Overlay */}
+      {isGifVisible && (
+        <Box
+          position="absolute"
+          bottom={1}
+          left={0}
+          width="100%"
+          height="100%"
+          zIndex="5"
+        >
+          <Image src={circlegif} alt="Circle GIF" style={{ transform: 'scale(1.7)' }} />
+        </Box>
+      )}
+    </Box>
+  );
+};
+
+
+export default Home;
