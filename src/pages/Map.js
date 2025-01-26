@@ -88,7 +88,7 @@ const Home = () => {
       
         <nav>
           /** */
-          <Box position="fixed" top="40px" right="40px" zIndex="10">
+          <Box position="absolute" top="40px" right="40px" zIndex="10">
             <Menu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} onInteractionOutside={() => setIsMenuOpen(false)}>
                 <div className='icon-container'>
               <MenuButton
@@ -144,7 +144,7 @@ const Home = () => {
         <Box 
         position="relative" 
         top="80px" // Adjust for header height
-        height="calc(100vh - 80px)" // Remaining height after header
+        // Remaining height after header
         overflowY="auto" // Make the map scrollable vertically
         display="flex"
         justifyContent="center"
