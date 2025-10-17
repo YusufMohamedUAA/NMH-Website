@@ -114,6 +114,7 @@ const Home = () => {
         </Box>
 
         {/* Overlay effects */}
+         {/* MAIN MERGE CONFLICT */}
         {hoveredMarker && (
           <>
             {/* Bottom white strip */}
