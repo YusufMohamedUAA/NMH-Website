@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/NMH-Website/static/css/main.72ab3208.css",
-    "main.js": "/NMH-Website/static/js/main.465765e4.js",
+    "main.js": "/NMH-Website/static/js/main.53343691.js",
     "static/media/Map.png": "/NMH-Website/static/media/Map.3372060d95a439a1c225.png",
     "static/media/NoMoreHeroesTransparent.png": "/NMH-Website/static/media/NoMoreHeroesTransparent.32ae9dd26015f30e2262.png",
     "static/media/circle.gif": "/NMH-Website/static/media/circle.00286cf03a3084ff650d.gif",
     "static/media/ARCADE.TTF": "/NMH-Website/static/media/ARCADE.0908c501a4d2c9da77ed.TTF",
     "index.html": "/NMH-Website/index.html",
     "main.72ab3208.css.map": "/NMH-Website/static/css/main.72ab3208.css.map",
-    "main.465765e4.js.map": "/NMH-Website/static/js/main.465765e4.js.map"
+    "main.53343691.js.map": "/NMH-Website/static/js/main.53343691.js.map"
   },
   "entrypoints": [
     "static/css/main.72ab3208.css",
-    "static/js/main.465765e4.js"
+    "static/js/main.53343691.js"
   ]
 }
