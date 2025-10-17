@@ -112,7 +112,10 @@ const Home = () => {
             Icon={Naomi1}
           />
         </Box>
-
+        {/* Merge Conflict */}
+        {/* Merge Conflict */}
+        {/* Main Conflict */}
+        {/* Merge Conflict */}
         {/* Overlay effects */}
          {/* MAIN MERGE CONFLICT */}
         {hoveredMarker && (
