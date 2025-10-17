@@ -117,6 +117,7 @@ const Home = () => {
         {/* Main Conflict */}
         {/* Merge Conflict */}
         {/* Overlay effects */}
+         {/* MAIN MERGE CONFLICT */}
         {hoveredMarker && (
           <>
             {/* Bottom white strip */}
