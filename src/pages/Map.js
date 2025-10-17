@@ -94,7 +94,7 @@ const Home = () => {
           padding="20px"
           border="4px solid #E51C23"
         >
-          <Image src={MapSD} alt="Map" width="100%" />
+          <Image src={MapSD} alt="Map" width="1000%" />
           <Marker
             top="50%"
             left="50%"
