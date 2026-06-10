@@ -1,24 +1,20 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';  // ← import from 'react-dom/client'
 import "./index.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom"; // corrected import
-import App from './App';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Map from "./pages/Map";
 
-ReactDOM.render(
-  <BrowserRouter>
+const root = createRoot(document.getElementById('root'));  // ← pass the DOM element here
+root.render(                                               // ← then call .render() on it
+  <BrowserRouter basename={process.env.PUBLIC_URL}>
     <Routes>
-      <Route path="/" element={<Home />}>
-      
-        
-      </Route>
+      <Route path="/" element={<Home />} />
       <Route path="about" element={<About />} />
-      <Route path="contact" element={<Contact />}/>
-      <Route path="map" element={<Map/>}/>
+      <Route path="contact" element={<Contact />} />
+      <Route path="map" element={<Map />} />
     </Routes>
-  </BrowserRouter>,
-  document.getElementById('root')
+  </BrowserRouter>
 );
